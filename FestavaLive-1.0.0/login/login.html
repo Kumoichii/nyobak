@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Login by Jovaaa</title>
+  <style>
+      /* Gaya untuk notifikasi error */
+      .error-message {
+          color: red;
+          font-size: 14px;
+          padding: 10px;
+          border: 1px solid red;
+          border-radius: 5px;
+          background-color: #ffe5e5;
+          opacity: 0; /* Awalnya tidak terlihat */
+          transform: scale(0.5); /* Awalnya kecil */
+          transition: opacity 0.4s ease, transform 0.4s ease; /* Transisi untuk efek muncul */
+          position: absolute; 
+          left: 50%;
+          top: 50%; 
+          transform: translate(-50%, -50%) scale(0.5); /* Pusatkan dan kecilkan */
+          z-index: 1000;
+      }
+
+    
+      .error-message.show {
+          opacity: 1; /* Muncul sepenuhnya */
+          transform: translate(-50%, -50%) scale(1); /* Pusatkan dan ukur normal */
+      }
+  </style>
+<audio id="myAudio" src="tesss.mp3" autoplay loop></audio>
+
+<script>
+  const audio = document.getElementById("myAudio");
+
+  audio.volume = 0.1;
+</script>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form onsubmit="return redirectToPage()">
+                    <h2>Masuk</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" id="username" required>
+                        <label for="username">Nama Pengguna</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" required>
+                        <label for="password">Kata Sandi</label>
+                    </div>
+                    <button type="submit">Masuk</button>
+                    <!-- Notifikasi Error -->
+                    <div id="error-message" class="error-message">Username atau Kata Sandi lu salah kocak, Coba Lagi.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Script Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <script>
+        function redirectToPage() {
+            const correctUsername = "Jova";
+            const correctPassword = "Jova123";
+            
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Ambil elemen pesan error
+            const errorMessage = document.getElementById("error-message");
+
+            // Cek apakah username dan password cocok
+            if (username === correctUsername && password === correctPassword) {
+                // Jika benar, arahkan ke halaman tujuan
+                window.location.href = "https://kumoichi.it.student.pens.ac.id/Web%20Pake%20Boostrap/";
+            } else {
+                // Jika salah, tampilkan pesan kesalahan dengan animasi
+                errorMessage.classList.
+                add("show");
+            }
+            
+            return false; // Mencegah form agar tidak terkirim
+        }
+    </script>
+</body>
+</html>
